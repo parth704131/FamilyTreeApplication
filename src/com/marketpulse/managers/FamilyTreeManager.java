@@ -31,8 +31,8 @@ public class FamilyTreeManager {
         if (root == null
                 || firstName.isEmpty()
                 || lastName.isEmpty()
-                || firstName!=null
-                || lastName!=null)
+                || firstName==null
+                || lastName==null)
             return 0;
 
         Queue<Person> personQueue = new LinkedList<>();
@@ -67,8 +67,8 @@ public class FamilyTreeManager {
         if (root == null
                 || firstName.isEmpty()
                 || lastName.isEmpty()
-                || firstName!=null
-                || lastName!=null)
+                || firstName==null
+                || lastName==null)
             return 0;
 
         Queue<Person> personQueue = new LinkedList<>();

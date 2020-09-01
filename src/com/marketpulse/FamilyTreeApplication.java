@@ -8,13 +8,12 @@ public class FamilyTreeApplication {
     public static void main(String[] args) throws Exception {
 
         Person john = FamilyTreeManager.createPerson("John", "Sakespeare", Gender.MALE);
-        Person mary = FamilyTreeManager.createPerson("Mary", "Arden", Gender.FEMALE);
 
         Person joan = FamilyTreeManager.createPerson("Joan", "Sakespeare", Gender.FEMALE);
         Person marget = FamilyTreeManager.createPerson("Marget", "Sakespeare", Gender.FEMALE);
         Person william = FamilyTreeManager.createPerson("William", "Sakespeare", Gender.MALE);
 
-        Person susana = FamilyTreeManager.createPerson("Susana", "Sakesspeare", Gender.FEMALE);
+        Person susana = FamilyTreeManager.createPerson("Susana", "Sakespeare", Gender.FEMALE);
 
         FamilyTreeManager.addRelationBetweenTwoPerson(john, joan);
         FamilyTreeManager.addRelationBetweenTwoPerson(john, marget);

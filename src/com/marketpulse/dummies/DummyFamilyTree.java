@@ -8,7 +8,6 @@ public class DummyFamilyTree {
     public static Person getDummyFamilyTree() {
 
         Person john = new Person("john", "sakes", Gender.MALE);
-        Person maryArden = new Person("mary", "arden", Gender.FEMALE);
 
         Person joan = new Person("joan", "sakes", Gender.FEMALE, john);
         Person marget = new Person("marget", "sakes", Gender.FEMALE, joan);
