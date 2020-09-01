@@ -11,23 +11,28 @@ public class FamilyTreeManager {
     public static Person createPerson(String firstName,String lastName,Gender gender) throws Exception {
         if(firstName!=null && !firstName.isEmpty()
                 && lastName!=null && !lastName.isEmpty()
-                && gender!=null)
-        {
+                && gender!=null) {
             return new Person(firstName,lastName,gender);
         }
-        throw new Exception("Fields are Required");
+        throw new Exception("Fields are required or not be empty");
     }
 
-    public static boolean addRelationBetweenTwoPerson(Person father,Person son)
-    {
-        father.getChildrens().add(son);
-        son.setFather(father);
-        return true;
+    public static void addRelationBetweenTwoPerson(Person father,Person son) throws Exception {
+        if(father!=null && son!=null) {
+            father.getChildrens().add(son);
+            son.setFather(father);
+        } else{
+            throw new Exception("Person object should not be empty");
+        }
     }
 
     public static int findNumberOfSons(Person root, String firstName, String lastName) {
         int numOfSons = 0;
-        if (root == null)
+        if (root == null
+                || firstName.isEmpty()
+                || lastName.isEmpty()
+                || firstName!=null
+                || lastName!=null)
             return 0;
 
         Queue<Person> personQueue = new LinkedList<>();
@@ -59,7 +64,11 @@ public class FamilyTreeManager {
     public static int findNumberOfAllDaughters(Person root, String firstName, String lastName) {
         int numOfDaughters = 0;
 
-        if (root == null)
+        if (root == null
+                || firstName.isEmpty()
+                || lastName.isEmpty()
+                || firstName!=null
+                || lastName!=null)
             return 0;
 
         Queue<Person> personQueue = new LinkedList<>();
