@@ -49,5 +49,7 @@ public class FamilyTreeApplication {
         int numOfSons = FamilyTreeManager.findNumberOfSons(john, "john", "sakes");
         System.out.println(numOfSons);
 
+        int numOfDaughters =FamilyTreeManager.findNumberOfAllDaughters(john,"john","sakes");
+        System.out.println(numOfDaughters);
     }
 }
