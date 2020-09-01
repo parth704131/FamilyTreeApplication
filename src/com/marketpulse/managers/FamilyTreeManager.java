@@ -8,20 +8,37 @@ import java.util.Queue;
 
 public class FamilyTreeManager {
 
+    public static Person createPerson(String firstName,String lastName,Gender gender) throws Exception {
+        if(firstName!=null && !firstName.isEmpty()
+                && lastName!=null && !lastName.isEmpty()
+                && gender!=null)
+        {
+            return new Person(firstName,lastName,gender);
+        }
+        throw new Exception("Fields are Required");
+    }
+
+    public static boolean addRelationBetweenTwoPerson(Person father,Person son)
+    {
+        father.getChildrens().add(son);
+        son.setFather(father);
+        return true;
+    }
+
     public static int findNumberOfSons(Person root, String firstName, String lastName) {
         int numOfSons = 0;
         if (root == null)
             return 0;
 
-        Queue<Person> q = new LinkedList<>();
-        q.add(root);
+        Queue<Person> personQueue = new LinkedList<>();
+        personQueue.add(root);
 
-        while (!q.isEmpty()) {
-            int n = q.size();
+        while (!personQueue.isEmpty()) {
+            int n = personQueue.size();
 
             while (n > 0) {
-                Person p = q.peek();
-                q.remove();
+                Person p = personQueue.peek();
+                personQueue.remove();
                 if (p.getFirstName() == firstName && p.getLastName() == lastName) {
                     for (int i = 0; i < p.getChildrens().size(); i++) {
                         if (p.getChildrens().get(i).getGender() == Gender.MALE) {
@@ -32,7 +49,7 @@ public class FamilyTreeManager {
                 }
 
                 for (int i = 0; i < p.getChildrens().size(); i++)
-                    q.add(p.getChildrens().get(i));
+                    personQueue.add(p.getChildrens().get(i));
                 n--;
             }
         }
